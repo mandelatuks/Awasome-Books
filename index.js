@@ -6,8 +6,13 @@ const books = [
   },
 ];
 
-books.forEach((data) => {
-  if (booksElement) {
+
+const displayBooks = () => {
+  booksElement.innerHTML = '';
+  for (const bookId in books) {
+    if (Object.hasOwnProperty.call(books,bookId)){
+
+
     booksElement.innerHTML += `
     <article class="book" >
    <span>${data.title}</span>
@@ -17,6 +22,9 @@ books.forEach((data) => {
    <button type="button" id="delete">Remove</button>
    <hr>
    </article> `;
-  }
+  
 });
+    }
+  }
 
+}
