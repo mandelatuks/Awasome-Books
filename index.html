@@ -10,32 +10,23 @@
 </head>
 
 <body>
-<header>
-    <div class="book-title">
 
-      <h1>Awesome books</h1>
-    </div>
-  </header>
-  
-    <main>
+  <h1>Awesome Books</h1>
 
-      <div class="book-list">
-       
-      </div>
+  <section id="book-list" class="books">
+  </section>
+  <h2>Add a Book</h2>
+  <form id="add-book">
+    <input id="title" type="text" placeholder="Title" required>
+    <br>
+    <br>
+    <input id="author" type="text" placeholder="Author" required>
+    <br>
+    <br>
+    <button type="submit">Add</button>
+  </form>
 
-      <form action="#" id="new-book-form">
-
-        <input type="text" name="book" id="new-book-input" placeholder="Title" required>
-        <br>
-        <br>
-        <input type="text" name="author" id="new-author-input" placeholder="Author" required>
-        <br>
-        <br>
-        <button type="submit" id="new-book-submit">Add</button>
-
-      </form>
-
-  </main>
   <script src="index.js"></script>
 </body>
+
 </html>
