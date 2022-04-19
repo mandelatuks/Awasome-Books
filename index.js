@@ -34,4 +34,37 @@ class BookClass {
     localStorage.setItem('books', JSON.stringify(books));
   }
 }
+const storeBooks = JSON.parse(localStorage.getItem('books'));
 
+function showBooks() {
+  const booksCode = books.map((book) => new BookClass(book.title, book.author, book.id).bookCode());
+  bookList.innerHTML = booksCode.join('');
+  const deleteBtn = document.querySelectorAll('.remove');
+  deleteBtn.forEach((el) => {
+    el.addEventListener('click', (e) => {
+      const id = e.target.getAttribute('data-id');
+      BookClass.remove(id);
+      showBooks();
+    });
+  });
+}
+
+if (storeBooks) {
+  books = storeBooks;
+  showBooks();
+}
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const title = titleInput.value.trim();
+  const author = authorInput.value.trim();
+
+  if (!title || !author) {
+    return;
+  }
+  const newBook = new BookClass(title, author);
+  BookClass.addBook(newBook);
+  showBooks();
+  titleInput.value = '';
+  authorInput.value = '';
+});
