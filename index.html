@@ -11,20 +11,35 @@
 
 <body>
 
-  <h1>Awesome Books</h1>
+  <h1>All awesome books</h1>
 
   <section id="book-list" class="books">
+
+    
+
+
   </section>
-  <h2>Add a Book</h2>
-  <form id="add-book">
-    <input id="title" type="text" placeholder="Title" required>
-    <br>
-    <br>
-    <input id="author" type="text" placeholder="Author" required>
-    <br>
-    <br>
-    <button type="submit">Add</button>
-  </form>
+  <hr>
+  <h2>Add a new book</h2>
+
+  <div class="form-block">
+
+    <form id="add-book">
+      <div class="book-form">
+        <input id="title" type="text" placeholder="Title" required>
+        <br>
+        <br>
+        <input id="author" type="text" placeholder="Author" required>
+        <br>
+        <br>
+      </div>
+
+      <div class="form-button">
+        <button type="submit">Add</button>
+      </div>
+    </form>
+
+  </div>
 
   <script src="index.js"></script>
 </body>

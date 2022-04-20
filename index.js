@@ -13,10 +13,20 @@ class BookClass {
   }
 
   bookCode() {
-    return `<p class="title">${this.title}</p>
-                 <p>${this.author}</p>
-                <button data-id=${this.id} class="remove">Remove</button>
-                <hr>`;
+    return `<div class="book-block">
+    
+                <div class="title-author">
+
+                    <div class="title">${this.title}</div>
+                    <div> <p>by</p> </div>
+                    <div>${this.author}</div>
+
+                </div>
+
+                <div class="buttons">
+                  <button data-id=${this.id} class="remove">Remove</button>
+                </div>
+            </div>`;
   }
 
   static addBook(book) {
