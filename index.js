@@ -3,23 +3,23 @@ const addItem = document.querySelector('.add-link');
 const contactItem = document.querySelector('.contact-link');
 const formItems = document.querySelector('.new-book');
 const bookList = document.querySelector('#book-list');
-const contSec = document.querySelector('.contact-section');
+const contSec = document.querySelector('.contact');
 
 listItem.addEventListener('click', () => {
   formItems.style.display = 'none';
   contSec.style.display = 'none';
-  bookList.style.display = 'flex';
+  bookList.style.display = 'block';
 });
 
 addItem.addEventListener('click', () => {
-  formItems.style.display = 'flex';
+  formItems.style.display = 'block';
   contSec.style.display = 'none';
   bookList.style.display = 'none';
 });
 
 contactItem.addEventListener('click', () => {
   formItems.style.display = 'none';
-  contSec.style.display = 'flex';
+  contSec.style.display = 'block';
   bookList.style.display = 'none';
 });
 
@@ -37,14 +37,18 @@ class Book {
   //  Align books added to shelf
   constructor(bookShelf) {
     this.shelf = document.querySelector(bookShelf);
+    const data = localStorage.getItem('books');
+    this.books = data ? JSON.parse(data) : [];
+    this.incrementBooks(this.books);
+    this.addRemoveEventListener();
   }
 
   //  Method that adds books to the shelf
   addBookToSHelf(bookDetailObject) {
     this.books = [...this.books, { id: this.books.length + 1, ...bookDetailObject }];
-    localStorage.setItem('books', JSON.stringify(this.books));
     this.incrementBooks(this.books);
     this.addRemoveEventListener();
+    localStorage.setItem('books', JSON.stringify(this.books));
   }
 
   //  Method that increments the books in shelf(+1 whenever)
@@ -63,7 +67,6 @@ class Book {
       <button data-id="${book.id}" class="remove">Remove</button>
     </div>
 </div>`).join('');
-    localStorage.setItem('books', JSON.stringify(books));
   }
 
   addRemoveEventListener() {
@@ -79,9 +82,9 @@ class Book {
   //  Method that removes books from the shelf
   removeBookFromShelf(id) {
     this.books = this.books.filter((b) => b.id !== Number(id));
-    localStorage.setItem('books', JSON.stringify(this.books));
     this.incrementBooks(this.books);
     this.addRemoveEventListener();
+    localStorage.setItem('books', JSON.stringify(this.books));
   }
 }
 
