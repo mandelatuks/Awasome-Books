@@ -1,3 +1,31 @@
+const listItem = document.querySelector('.list-link');
+const addItem = document.querySelector('.add-link');
+const contactItem = document.querySelector('.contact-link');
+const formItems = document.querySelector('.new-book');
+const bookList = document.querySelector('#book-list');
+const contSec = document.querySelector('.contact-section');
+
+listItem.addEventListener('click', () => {
+  formItems.style.display = 'none';
+  contSec.style.display = 'none';
+  bookList.style.display = 'flex';
+});
+
+addItem.addEventListener('click', () => {
+  formItems.style.display = 'flex';
+  contSec.style.display = 'none';
+  bookList.style.display = 'none';
+});
+
+contactItem.addEventListener('click', () => {
+  formItems.style.display = 'none';
+  contSec.style.display = 'flex';
+  bookList.style.display = 'none';
+});
+
+const currentTime = new Date();
+document.querySelector('.time').innerHTML = currentTime;
+
 // Create a class
 class Book {
   // Book a container
